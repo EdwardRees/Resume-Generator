@@ -68,11 +68,15 @@ public class GenerateResume {
         s.append("<html>\n");
         s.append("<head>\n");
         s.append(
-                "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n");
-        s.append("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\n");
+                // "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n");
+                "<link rel=\"stylesheet\" href=\"/static/css/bootstrap.min.css\">\n");
+        // s.append("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\n");
+        s.append("<script src=\"/static/js/jquery-3.3.1.slim.min.js\"></script>\n");
         s.append(
-                "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>\n");
-        s.append("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n");
+                // "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>\n");
+                "<script src=\"/static/js/popper.min.js\"></script>\n");
+        // s.append("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n");
+        s.append("<script src=\"/static/js/bootstrap.min.js\"></script>\n");
         s.append("<style>\n");
         s.append("body { padding: 20; width: 595; height: 842; } \n");
         s.append("h1 { font-weight: bold; height: 150%; padding-bottom: 30 }\n");
@@ -276,7 +280,7 @@ public class GenerateResume {
 
     public void write() {
 
-        File defaultDir = new File("/Users/edwardrees/Projects/Resume Generator/");
+        File defaultDir = new File("/Users/edwardrees/Projects/Resume Generator/public/");
 
         File file = new File(defaultDir, "index.html");
         FileWriter writer = null;

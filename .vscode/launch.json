@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GenerateResume",
+            "request": "launch",
+            "mainClass": "GenerateResume",
+            "projectName": "Resume Generator_15633c98"
+        }
+    ]
+}
