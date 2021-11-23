@@ -19,10 +19,10 @@ const server = app.listen(PORT, () => {
 });
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(`http://localhost:${PORT}`).then(res => {});
-  await page.pdf({ path: "resume.pdf", format: "A4" });
+  await page.goto(`http://localhost:${PORT}`).then((res) => {});
+  await page.pdf({ path: "resumes/resume.pdf", format: "A4" });
 
   await browser.close();
   console.log("Done!");

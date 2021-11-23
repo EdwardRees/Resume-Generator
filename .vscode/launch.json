@@ -1,11 +1,24 @@
 {
     "configurations": [
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - GenerateResume",
-            "request": "launch",
-            "mainClass": "GenerateResume",
-            "projectName": "Resume Generator_15633c98"
-        }
+      {
+        "type": "java",
+        "name": "CodeLens (Launch) - FileParser",
+        "request": "launch",
+        "mainClass": "util.FileParser",
+        "projectName": "Resume Generator_15633c98"
+      },
+      {
+        "type": "java",
+        "name": "CodeLens (Launch) - Main",
+        "request": "launch",
+        "mainClass": "Main"
+      },
+      {
+        "type": "java",
+        "name": "CodeLens (Launch) - GenerateResume",
+        "request": "launch",
+        "mainClass": "GenerateResume",
+        "projectName": "Resume Generator_15633c98"
+      }
     ]
 }

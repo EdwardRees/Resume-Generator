@@ -1,85 +1,43 @@
+package util;
+
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+
+import structs.Education;
+import structs.Experience;
+import structs.Project;
+import structs.Resume;
+import structs.VolunteerWork;
+import users.User;
 
 public class GenerateResume {
 
     private Resume resume;
+    private User user;
 
-    public GenerateResume(Resume resume) {
-        this.resume = resume;
+    public GenerateResume(User user){
+      this.user = user;
+      this.resume = user.getResume();
     }
-
-    public GenerateResume() {
-        this(new Resume());
-    }
-
-    public void setResumeComponents() {
-        resume.addExperience(new Experience("The Coder School", "San Francisco", "Coding Coach", "SEP 2019", true, true,
-                new LinkedList<String>() {
-                    {
-                        add("Taught students aged 8-18 programming in Scratch, Python, and JavaScript.");
-                    }
-                }));
-        resume.addExperience(new Experience("PBI Health", "Remote Work", "Technology Lead", "MAR. 2019", true, false,
-                new LinkedList<String>() {
-                    {
-                        add("Research technology solutions");
-                        add("Developed the front-end website for their platform using ReactJS");
-                    }
-                }));
-        resume.addExperience(new Experience("S Plus Group Limited", "Hong Kong", "Chief Technology Officer",
-                "OCT. 2015", true, true, new LinkedList<String>() {
-                    {
-                        add("Using React.js, developed the front-end website, utilizing Firebase Hosting to host");
-                        add("Advised and managed technology throughout the office");
-                    }
-                }));
-        resume.addExperience(new Experience("Share My Hub", "Remote Work", "Front End Web Developer", "APR. 2018",
-                "SEP. 2019", true, new LinkedList<String>() {
-                    {
-                        add("Provided design and functioning advice");
-                        add("Using Vue.js, helped develop the front-end website for their platform");
-                    }
-                }));
-        resume.addExperience(new Experience("Chain Dimenxxion", "Remote Work", "Front End Web Developer", "JAN. 2019",
-                "MAR. 2019", false, new LinkedList<String>() {
-                    {
-                        add("Provided design and functioning advice");
-                        add("Developed the front-end website for their platform using HTML5, CSS3, and jQuery");
-                    }
-                }));
-        resume.addExperience(new Experience("Foodie Magazine", "Hong Kong", "Event Staff", "SEP. 2015", "AUG. 2018",
-                true, new LinkedList<String>() {
-                    {
-                        add("Worked events including setting up and customer service");
-                    }
-                }));
-        resume.addProject(new Project("College Selector", "Mobile Application, Personal Project",
-                "Used <b>React Native JavaScript</b> to create a mobile application helping university applicants to graphically understand their target schools using personally weighted criteria and individual school scores for comparison.  Available on Google Play and Apple App stores."));
-
-    }
-
     private String template(String body) {
         StringBuilder s = new StringBuilder();
         s.append("<html>\n");
         s.append("<head>\n");
-        s.append(
-                // "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n");
-                "<link rel=\"stylesheet\" href=\"/static/css/bootstrap.min.css\">\n");
-        // s.append("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\n");
+        s.append("<link rel=\"stylesheet\" href=\"/static/css/bootstrap.min.css\">\n");
         s.append("<script src=\"/static/js/jquery-3.3.1.slim.min.js\"></script>\n");
-        s.append(
-                // "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>\n");
-                "<script src=\"/static/js/popper.min.js\"></script>\n");
-        // s.append("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n");
+        s.append("<script src=\"/static/js/popper.min.js\"></script>\n");
         s.append("<script src=\"/static/js/bootstrap.min.js\"></script>\n");
         s.append("<style>\n");
-        s.append("body { padding: 20; width: 595; height: 842; } \n");
-        s.append("h1 { font-weight: bold; height: 150%; padding-bottom: 30 }\n");
+        s.append("body { padding: 40; width: 595; height: 842; } \n");
+        s.append("h1 { font-weight: bold; height: 150%; padding-bottom: 30; text-align-vertical: center }\n");
         s.append(
                 ".header { color: #2079C7; text-transform: uppercase;  font-weight: bold; padding-top: 10; padding-bottom: 10; }\n");
 
@@ -126,7 +84,10 @@ public class GenerateResume {
         StringBuilder s = new StringBuilder();
         for (Education e : resume.getEducation()) {
             s.append(e.toString());
+            s.append("<br />");
+            s.append("<br />");
         }
+        s.delete(s.length() - "<br /><br />".length(), s.length());
         return s.toString();
     }
 
@@ -197,52 +158,45 @@ public class GenerateResume {
     }
 
     public String generate() {
-        setResumeComponents();
+        user.setResumeComponents();
+        resume = user.getResume();
 
-        // resume.removeExperience(new Experience("S Plus Group Limited", "Hong Kong", "Chief Technology Officer",
-        //         "OCT. 2015", true, true, new LinkedList<>()));
         StringBuilder s = new StringBuilder();
         s.append("<div class='container-fluid'>\n");
         s.append("<div class='row'>");
         s.append("<div class='col-sm-8'>");
         s.append("<h1>" + resume.getName() + "</h1>");
         s.append("</div>");
-        s.append("<div class='col-sm-1'></div>");
-        s.append("<div class='col-sm-3'>");
+        s.append("<div class='col-sm-4'>");
         s.append(getContact());
         s.append("<br />");
         s.append("</div>");
         s.append("</div>");
         s.append("<div class='row'>");
         s.append("<div class='col-sm-8'>");
-        // s.append("<h1>" + resume.getName() + "</h1>");
         s.append("<span class='header'>\n");
         s.append("Experience");
         s.append("</span>\n");
-        // s.append("\n<br /><br />\n");
         s.append(getExperience());
         s.append("<span class='header'>\n");
         s.append("Education");
         s.append("</span>\n");
-        // s.append("\n<br/>\n");
         s.append(getEducation());
         s.append("\n<br /><br />\n");
         s.append("<span class='header'>\n");
         s.append("Projects");
         s.append("</span>\n");
-        // s.append("\n<br/><br />\n");
         s.append(getProjects());
-        s.append("\n<br/><br />\n");
+        s.append("\n\n");
         s.append("<span class='header'>\n");
         s.append("Volunteer Work");
         s.append("</span>\n");
-        // s.append("\n<br/><br />\n");
         s.append(getVolunteerWork());
         s.append("\n<br/><br />\n");
         s.append("</div>");
-        s.append("<div class='col-sm-1'></div>");
 
-        s.append("<div class='col-sm-3'>");
+
+        s.append("<div class='col-sm-4'>");
         s.append("<span class='header'>\n");
         s.append("Skills");
         s.append("</span>\n");
@@ -278,30 +232,37 @@ public class GenerateResume {
         return file;
     }
 
+    public void write(Path path){
+      this.resume = user.getResume();
+      try(BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)){
+        writer.write(generate());
+        System.out.printf("File located at %s%n", path.toAbsolutePath());
+      } catch(IOException e){
+        System.out.println("Invalid file address");
+      } 
+    }
+
     public void write() {
+        // String directory = System.getProperty("user.dir");
+        // File defaultDir = new File(directory + "/../public");
 
-        File defaultDir = new File("/Users/edwardrees/Projects/Resume Generator/public/");
-
-        File file = new File(defaultDir, "index.html");
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter(file);
-            writer.write(generate());
-        } catch (IOException e) {
-            e.printStackTrace(); // I'd rather declare method with throws IOException and omit this catch.
-        } finally {
-            if (writer != null)
-                try {
-                    writer.close();
-                } catch (IOException ignore) {
-                }
-        }
-        System.out.printf("File is located at %s%n", file.getAbsolutePath());
+        // File file = new File(defaultDir, "index.html");
+        // FileWriter writer = null;
+        // try {
+        //     writer = new FileWriter(file);
+        //     writer.write(generate());
+        // } catch (IOException e) {
+        //     e.printStackTrace(); // I'd rather declare method with throws IOException and omit this catch.
+        // } finally {
+        //     if (writer != null)
+        //         try {
+        //             writer.close();
+        //         } catch (IOException ignore) {
+        //         }
+        // }
+        // System.out.printf("File is located at %s%n", file.getAbsolutePath());
+        write(Path.of(".", "public").resolve("index.html").toAbsolutePath().normalize());
 
     }
 
-    public static void main(String[] args) {
-        GenerateResume r = new GenerateResume();
-        r.write();
-    }
 }

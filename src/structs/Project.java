@@ -1,3 +1,5 @@
+package structs;
+
 public class Project {
     private String name, type, information;
 
@@ -44,7 +46,7 @@ public class Project {
         s.append("</div>");
         s.append("<span style=\"color: #656665;\">");
         s.append(information);
-        s.append("</span>");
+        s.append("</span><br /><br />");
 
         return s.toString();
     }

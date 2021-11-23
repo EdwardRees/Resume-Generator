@@ -1,3 +1,4 @@
+package structs;
 public class VolunteerWork {
     private String name, duration, information;
     public VolunteerWork(String name, String duration, String information){

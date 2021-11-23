@@ -1,0 +1,134 @@
+{
+  "contact": {
+    "Street Address": "222 North Willard Street",
+    "City": "San Francisco, CA 94118",
+    "Phone Number": "(415) 917-7833",
+    "Email": "erees.hk@gmail.com"
+  },
+  "experience": {
+    "The Coder School": {
+      "Location": "San Francisco",
+      "Title": "Coding Coach",
+      "Start": "SEP 2019",
+      "Ongoing": true,
+      "Part Time": true,
+      "Description": [
+        "Taught students aged 8-18 programming in Scratch, Python, and JavaScript."
+      ]
+    },
+    "myFlexi": {
+      "Location": "San Francisco",
+      "Title": "Lead Mobile Developer",
+      "Start": "MAY 2019",
+      "Ongoing": true,
+      "Part Time": false,
+      "Description": [
+        "Using React Native, adapted a purely iOS application to a cross platform mobile application."
+      ]
+    },
+    "PBI Health": {
+      "Location": "Remote Work",
+      "Title": "Technology Lead",
+      "Start": "MAR 2019",
+      "Ongoing": true,
+      "Part Time": false,
+      "Description": [
+        "Research technology solutions",
+        "Developed the front-end website for their platform using ReactJS"
+      ]
+    },
+    "S Plus Group Limited": {
+      "Location": "Hong Kong",
+      "Title": "Chief Technology Officer",
+      "Start": "OCT 2015",
+      "Ongoing": true,
+      "Part Time": true,
+      "Description": [
+        "Using React.js, developed the front-end website, utilizing Firebase Hosting to host",
+        "Advised and managed technology throughout the office"
+      ]
+    },
+    "Share My Hub": {
+      "Location": "Remote Work",
+      "Title": "Front End Web Developer",
+      "Start": "APR 2018",
+      "End": "SEP 2019",
+      "Part Time": true,
+      "Description": [
+        "Provided design and functioning advice",
+        "Using Vue.js, helped develop the front-end website for their platform"
+      ]
+    },
+    "Chain Dimenxxion": {
+      "Location": "Remote Work",
+      "Title": "Front End Web Developer",
+      "Start": "JAN 2019",
+      "End": "MAR 2019",
+      "Part Time": false,
+      "Description": [
+        "Provided design and functioning advice",
+        "Developed the front-end website for their platform using HTML5, CSS3, and jQuery"
+      ]
+    },
+    "Foodie Magazine": {
+      "Location": "Hong Kong",
+      "Title": "Event Staff",
+      "Start": "SEP 2015",
+      "End": "AUG 2018",
+      "Part Time": true,
+      "Description": ["Worked events including setting up and customer service"]
+    }
+  },
+  "education": {
+    "University of San Francisco": {
+      "Country": "USA",
+      "Graduation Date": "MAY 2022",
+      "Degree": "B.S. Computer Science, Minor Psychology",
+      "Intended": true
+    }
+  },
+  "projects": {
+    "College Selector": {
+      "Type": "Mobile Application, Personal Project",
+      "Description": "Used <b>React Native JavaScript</b> to create a mobile application helping university applicants to graphically understand their target schools using personally weighted criteria and individual school scores for comparison.  Available on Google Play and Apple App stores."
+	}
+  },
+  "skills": [
+    "Strong listening, communication, and collaboration capability",
+    "Clear understanding of Web Development",
+    "Project execution skills including planning and programming logic"
+  ],
+  "programming-languages": {
+    "proficient": ["JavaScript", "Java", "Python", "HTML/CSS"],
+    "familiar": ["TypeScript", "C"]
+  },
+  "frameworks": {
+    "proficient": ["React.js", "Bootstrap", "jQuery"],
+    "familiar": ["React Native", "Vue.js", "Node.js", "Express.js"]
+  },
+  "interests": [
+    "Sailing: Level 1-3 and Keelboat,",
+    "Drumming,",
+    "Teaching,",
+    "International Travel; 18 countries"
+  ],
+  "volunteer-work": {
+    "Hong Kong International School Sailing Club": {
+      "Years": "2014-2018",
+      "Description": "Established and led 24 student sailing club"
+    },
+    "Peer to Peer": {
+      "Years": "2016-2018",
+      "Description": "Participated in student led Social Peer Counseling group with 15 students"
+    },
+    "STEMChats": {
+      "Years": "JAN - MAR 2020",
+      "Description": "Created lesson plans to help teach Secondary school students STEM concepts in one hour weekly lessons."
+    }
+  },
+  "languages": [
+    "English - Native",
+    "Cantonese - Limited Working",
+    "Mandarin - Limited Working"
+  ]
+}
